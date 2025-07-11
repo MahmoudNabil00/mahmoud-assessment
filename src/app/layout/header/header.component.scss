@@ -1,0 +1,19 @@
+.header{
+    background-color: var(--m-bg-3);
+    position: relative;
+}
+
+.collapse-template{
+    position: absolute;
+    width: 100%;
+    height: 0;
+    transition: all 0.3s;
+    left: 0;
+    background-color: var(--m-bg-3);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow: hidden;
+    &.collapsed{
+        height:400px
+    }
+}

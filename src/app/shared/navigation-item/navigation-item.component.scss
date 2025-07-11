@@ -1,0 +1,13 @@
+.collapsable-record{
+    .nested-content{
+        height:0px;
+        transition: all 0.3s;
+        overflow-y: hidden;
+    }
+    &.isCollapsed {
+        .nested-content{
+            height: 60px;
+            overflow-y: hidden;
+        }
+    }
+}

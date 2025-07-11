@@ -1,0 +1,12 @@
+@if (isSvg()) {
+  <div class="svg-container" [innerHTML]="svgTemplate"></div>
+}@else {
+  <img
+    [style.background]="isOutline() ? 'none' : null"
+    [class.dark]="!themeService.isDarkModeTheme()"
+    [src]="src()"
+    [width]="width()"
+    [alt]="alt()"
+  />
+}
+

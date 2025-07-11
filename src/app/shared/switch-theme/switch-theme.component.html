@@ -1,0 +1,8 @@
+<div class="mt-2">
+    @if(themeService.isDarkModeTheme()){
+        <i (click)="switch()" class="pi pi-moon cursor-pointer" style="color: #708090;font-size: 1.5rem"></i>
+        
+    }@else{
+        <i (click)="switch()" class="pi pi-sun cursor-pointer" style="color: #708090;font-size: 1.5rem"></i>
+    }    
+</div>

@@ -1,0 +1,53 @@
+:root{
+    /* Primary Base */
+    --m-color-primary: #00C5D6; /* Brand Main */
+
+    /* Primary Variants */
+    --m-color-primary-light: #66e0eb;  /* Hover/Accent */
+    --m-color-primary-dark: #0095a5;   /* Focus/Active */
+    --m-color-primary-muted: #ccf3f6;  /* Background or Soft States */
+
+    /* Primary Text Contrast */
+    --m-color-primary-contrast: #ffffff;
+
+    /* Primary Border */
+    --m-color-primary-border: #00b2c2;
+
+    /* Primary Shadow  */
+    --m-color-primary-shadow: rgba(0, 197, 214, 0.4);
+
+
+    /* Surface Colors: Light to Dark */
+    --m-surface-0:   #ffffff;   
+    --m-surface-100: #f4f4f5;
+    --m-surface-200: #e5e7eb;
+    --m-surface-300: #d1d5db;
+    --m-surface-400: #9ca3af;
+    --m-surface-500: #6b7280;
+    --m-surface-600: #4b5563;
+    --m-surface-700: #374151;
+    --m-surface-800: #252836; 
+    --m-surface-850: #1f1d2b; 
+    --m-surface-900: #10141A; 
+
+    // Back-ground colors light mode 
+
+    --m-bg-1:var(--m-surface-300);
+    --m-bg-2:var(--m-surface-200);
+    --m-bg-3:var(--m-surface-100);
+
+    &.dark-theme{
+        --m-bg-1:var(--m-surface-800); // body
+        --m-bg-2:var( --m-surface-850); // modal
+        --m-bg-3:var(--m-surface-900); // bars / headers / sidebar
+    }
+
+
+    // text-color   
+    --m-text-muted:#706D7E;
+    --m-text-1:var(--m-surface-900);
+    &.dark-theme{
+        --m-text-1:var(--m-surface-0);
+    }
+
+}

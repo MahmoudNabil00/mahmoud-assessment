@@ -1,0 +1,36 @@
+<div #container class="d-flex flex-column gap-8 p-5">
+    @switch(mode()){
+        @case (menuMode.sidebarOpen) {
+            @for (item of _items(); track $index) {
+                @if(item?.items && item.items?.length){
+                    <div class="d-flex gap-6 flex-column collapsable-record" [class.isCollapsed]="item.isCollapsed">
+                        <div class="d-flex justify-content-between align-items-center " >
+                                <a [routerLinkActiveOptions]="{ exact: true }" [routerLink]="item.url" routerLinkActive="active-route" class="record-item d-flex gap-4 align-items-center cursor-pointer">
+                                    <mahmoud-imgs [isSvg]="true" [isOutline]="true" [width]="30" [src]="item.icon"/>
+                                    <span class="fw-bold f-muted font-18">{{item.label}}</span>
+                                </a>
+                           @if (item.isCollapsed) {
+                                <i (click)="item.isCollapsed = false" class="cursor-pointer pi pi-angle-up" style="color: #708090;font-size: 1.5rem"></i>
+                           }@else {
+                               <i (click)="item.isCollapsed = true" class="cursor-pointer pi pi-angle-down" style="color: #708090;font-size: 1.5rem"></i>
+                           }
+                        </div>
+                        <div class="nested-content mh-4 d-flex justify-content-between align-items-center">
+                            <mahmoud-navigation-item [items]="item.items"></mahmoud-navigation-item>
+                            <p-button (onClick)="addUser(item)" size="small" icon="pi pi-check pi-plus" />
+                        </div>
+                    </div>
+                }@else {
+                    <a  [routerLinkActiveOptions]="{ exact: true }" [routerLink]="item.url" routerLinkActive="active-route" class="record-item d-flex gap-4 align-items-center cursor-pointer">
+                        <mahmoud-imgs [isSvg]="true" [isOutline]="true" [width]="30" [src]="item.icon"/>
+                        <span class="fw-bold f-muted font-18">{{item.label}}</span>
+                    </a>
+                }
+            }
+        }
+        @case (menuMode.sidebarClosed) {
+            
+        }
+    }
+</div>
+  

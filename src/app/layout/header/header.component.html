@@ -1,0 +1,59 @@
+<div #containerRef class="header p-4 d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center gap-4">
+        <mahmoud-imgs [isSvg]="false" class="cursor-pointer" [width]="70" src="assets/imgs/logo-small.png"/>
+
+        
+        @if (!isCollapse() && currentUrl) {
+            <div class="d-flex align-items-center gap-4 active-route">
+                @switch (currentUrl) {
+                    @case ('/dashboard') {
+                        <mahmoud-imgs [isSvg]="true" [width]="50" src="assets/svg/dashboard-icon.svg"/>
+                        <span class="f-primary fw-bold font-20">Dashboard</span>
+                    }
+                    @case ('/add-user') {
+                        <mahmoud-imgs [isSvg]="true" [width]="50" src="assets/svg/users-icon.svg"/>
+                        <span class="f-primary fw-bold font-20">Users</span>
+                    }
+                }
+            </div>
+        }
+    </div>
+    <div class="d-flex align-items-center gap-6">
+        @if (!isCollapse()) {
+            <mahmoud-avatar [width]="40"/>
+            <mahmoud-switch-theme/>
+            <i (click)="collapse()" class="pi pi-align-justify cursor-pointer" style="color: #708090;font-size: 1.5rem"></i>
+        }
+        @else if (isCollapse()) {
+            <div class="d-flex align-items-center gap-6">
+                <mahmoud-switch-theme/>
+                <i (click)="collapse()" class="pi pi-times cursor-pointer" style="color: #708090;font-size: 1.5rem"></i>
+            </div>
+        }
+    </div>
+
+    
+    @defer (when containerRef) {
+        @let clientHeight = `${containerRef.clientHeight}px`;
+        <ng-container *ngTemplateOutlet="collapseTemplate; context: { $implicit: clientHeight }"></ng-container>
+    }
+
+</div>
+
+
+<ng-template #collapseTemplate let-clientHeight>
+    <div class="collapse-template d-flex flex-column justify-content-between" [class.collapsed]="isCollapse()" [ngStyle]="{'top':clientHeight}">
+        <mahmoud-navigation-item class="flex-1" (onClickButton)="addUser()" [mode]="menuMode.sidebarOpen"></mahmoud-navigation-item>
+        <div class="d-flex m-4 gap-4">
+            <mahmoud-avatar [width]="40"/>
+            <div class="d-flex flex-column">
+                <span class="font-14 fw-bold">
+                    John Doe
+                </span>
+                <span class="font-14 ">
+                    Admin
+                </span>
+            </div>
+        </div>
+    </div>
+</ng-template>
