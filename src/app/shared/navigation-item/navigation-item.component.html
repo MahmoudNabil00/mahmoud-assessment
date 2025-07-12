@@ -28,9 +28,46 @@
                 }
             }
         }
+
         @case (menuMode.sidebarClosed) {
-            
+            @for (item of _items(); track $index) {
+                @if (item?.items && item.items?.length) {
+
+                    <div (click)="menu.toggle($event)" class="d-flex gap-6 flex-column collapsable-record">
+                        <a (click)="checkRoute($event,item)" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="item.url ? item.url : null" routerLinkActive="active-route" class="record-item d-flex flex-column gap-4 align-items-center cursor-pointer">
+                            <mahmoud-imgs [isSvg]="true" [isOutline]="true" [width]="50" [src]="item.icon"/>
+                            <span class="fw-bold f-muted font-12">{{item.label}}</span>
+                        </a>
+                    </div>
+                    <p-menu [popup]="true" #menu [model]="[{}]" [popup]="true" >
+                        <ng-template  pTemplate="item">
+                            <div  class="custom-menu-item p-2 d-flex flex-column gap-4">
+                                <span class="font-16 fw-semibold">Assets</span>
+                                <a class="record-item d-flex  gap-4 align-items-center cursor-pointer">
+                                    <mahmoud-imgs [isSvg]="true" [isOutline]="true" [width]="50" src="assets/svg/invoices-icon.svg"/>
+                                    <span class="fw-bold f-muted font-16">invoices</span>
+                                </a>
+                                <div class="nested-content gap-5 d-flex justify-content-between align-items-center">
+                                    <mahmoud-navigation-item [items]="item.items"></mahmoud-navigation-item>
+                                    <p-button (onClick)="addUser(item)" size="small" icon="pi pi-check pi-plus" />
+                                </div>
+                                <!-- Invoice record this is not includes the array  -->
+
+                                <!--  -->
+                            </div>
+                        </ng-template>
+                    </p-menu>
+                }@else{
+                    <div class="d-flex gap-6 flex-column collapsable-record">
+                        <a [routerLinkActiveOptions]="{ exact: true }" [routerLink]="item.url" routerLinkActive="active-route" class="record-item d-flex flex-column gap-4 align-items-center cursor-pointer">
+                            <mahmoud-imgs [isSvg]="true" [isOutline]="true" [width]="50" [src]="item.icon"/>
+                            <span class="fw-bold f-muted font-12">{{item.label}}</span>
+                        </a>
+                    </div>
+                }
+            }
         }
     }
 </div>
-  
+
+

@@ -16,7 +16,7 @@ export class NavigationItemComponent implements AfterViewInit{
   menuMode = MenuMode
   mode = input<MenuMode>(MenuMode.sidebarOpen)
   items = input<MenuItems[] | undefined>(undefined)
-  _items = computed(()=> !!this.items() ? this.items() : this.menuItems)
+  _items = computed(()=> this.items() ? this.items() : this.menuItems)
   router = inject(Router)
   activeMenuService = inject(ActiveMenuService)
   onClickButton = output()
@@ -49,8 +49,13 @@ export class NavigationItemComponent implements AfterViewInit{
   ]
   addUser(item:MenuItems){
     this.onClickButton.emit()
+    this.router.navigate(['add-user'])
   }
-
+  checkRoute(event:Event,item:MenuItems){
+    if(!item.url){
+      event.preventDefault()
+    }
+  }
   ngAfterViewInit() {
 
   }

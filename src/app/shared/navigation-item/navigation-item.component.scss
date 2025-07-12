@@ -1,7 +1,7 @@
 .collapsable-record{
     .nested-content{
         height:0px;
-        transition: all 0.3s;
+        transition: all var(--transition-duration);
         overflow-y: hidden;
     }
     &.isCollapsed {
@@ -10,4 +10,37 @@
             overflow-y: hidden;
         }
     }
+}
+
+
+:host p-menu ::ng-deep div {
+    top: 500px !important;
+    left: 96px !important;
+    @media (min-height:800px) {
+        top: 600px !important;
+    }
+    border: none;
+    background-color: var(--m-bg-3) !important;
+    // filter: blur(0.2px); 
+    // box-shadow: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    .p-menu-item-content{
+        border-top: var(--m-surface-600) 1px solid;
+        border-right: var(--m-surface-600) 1px solid;
+        border-bottom: var(--m-surface-600) 1px solid;
+    }
+    .p-menu-item-content:hover{
+        background-color: var(--m-bg-3) !important;
+    }
+}
+.custom-menu-item{
+    mahmoud-navigation-item div {
+        padding: 0px !important;
+    }
+
 }

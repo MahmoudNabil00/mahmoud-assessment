@@ -1,3 +1,4 @@
+
 .container-xxl {
     width: 1320px !important;
     margin: 0 auto;
@@ -21,7 +22,8 @@
 }
 
 :root{
-    --space-base:4px
+    --space-base:4px;
+    --transition-duration:0.3s;
 }
 
 @for $i from 0 through 20 {
@@ -111,6 +113,10 @@
     }
   }
 
+  .flex-wrap{
+    flex-wrap: wrap;
+  }
+
 
   p-button button span {
     color: var(--m-surface-0);
@@ -135,14 +141,18 @@
  }
 }
 
-// mahmoud-header{
-//   display: none;
-// }
-// @media (max-width: 700px) {
-//   mahmoud-sidebar{
-//     display: none;
-//   }
-//   mahmoud-header{
-//     display: block;
-//   }
+mahmoud-header{
+  display: none;
+}
+@media (max-width: 700px) {
+  mahmoud-sidebar{
+    display: none;
+  }
+  mahmoud-header{
+    display: block;
+  }
+}
+
+// input.ng-invalid.ng-touched{
+//   border: red 1px solid;
 // }

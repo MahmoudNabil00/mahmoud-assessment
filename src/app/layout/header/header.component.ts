@@ -35,8 +35,7 @@ export class HeaderComponent implements OnInit{
       return !currentState
     })
   }
-  addUser(){
-    this.router.navigate(['/add-user'])
-  }
+  
+  onNavigateClick(){}
 
 }

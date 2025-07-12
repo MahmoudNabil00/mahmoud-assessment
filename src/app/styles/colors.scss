@@ -23,7 +23,7 @@
     --m-surface-200: #e5e7eb;
     --m-surface-300: #d1d5db;
     --m-surface-400: #9ca3af;
-    --m-surface-500: #6b7280;
+    --m-surface-500: #6b7280; // for border 
     --m-surface-600: #4b5563;
     --m-surface-700: #374151;
     --m-surface-800: #252836; 
@@ -44,6 +44,8 @@
 
 
     // text-color   
+
+    --m-text-secondary:#9E9BAD;
     --m-text-muted:#706D7E;
     --m-text-1:var(--m-surface-900);
     &.dark-theme{

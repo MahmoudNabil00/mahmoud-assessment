@@ -4,7 +4,7 @@
 
         
         @if (!isCollapse() && currentUrl) {
-            <div class="d-flex align-items-center gap-4 active-route">
+            <div class="d-flex align-items-center gap-4 active-route selected-page">
                 @switch (currentUrl) {
                     @case ('/dashboard') {
                         <mahmoud-imgs [isSvg]="true" [width]="50" src="assets/svg/dashboard-icon.svg"/>
@@ -22,7 +22,7 @@
         @if (!isCollapse()) {
             <mahmoud-avatar [width]="40"/>
             <mahmoud-switch-theme/>
-            <i (click)="collapse()" class="pi pi-align-justify cursor-pointer" style="color: #708090;font-size: 1.5rem"></i>
+            <i (click)="collapse()" class="pi pi-bars cursor-pointer" style="color: #708090;font-size: 1.5rem"></i>
         }
         @else if (isCollapse()) {
             <div class="d-flex align-items-center gap-6">
@@ -43,7 +43,7 @@
 
 <ng-template #collapseTemplate let-clientHeight>
     <div class="collapse-template d-flex flex-column justify-content-between" [class.collapsed]="isCollapse()" [ngStyle]="{'top':clientHeight}">
-        <mahmoud-navigation-item class="flex-1" (onClickButton)="addUser()" [mode]="menuMode.sidebarOpen"></mahmoud-navigation-item>
+        <mahmoud-navigation-item class="flex-1" (onClickButton)="onNavigateClick()" [mode]="menuMode.sidebarOpen"></mahmoud-navigation-item>
         <div class="d-flex m-4 gap-4">
             <mahmoud-avatar [width]="40"/>
             <div class="d-flex flex-column">

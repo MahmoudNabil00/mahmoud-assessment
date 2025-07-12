@@ -1,0 +1,23 @@
+.add-user-container{
+    .header{
+        border-bottom: 1px solid var(--m-surface-500);
+    }
+}
+.add-user-content{
+    // overflow-x: hidden;
+    // height: 100%;
+    // overflow-y: auto;
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+}
+.upload-button{
+    background-color: var(--m-bg-3);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+:host .form-content input{
+    width: 100%;
+}

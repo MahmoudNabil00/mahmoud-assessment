@@ -7,7 +7,7 @@
     position: absolute;
     width: 100%;
     height: 0;
-    transition: all 0.3s;
+    transition: all var(--transition-duration);
     left: 0;
     background-color: var(--m-bg-3);
     border-bottom-left-radius: 12px;
@@ -15,5 +15,11 @@
     overflow: hidden;
     &.collapsed{
         height:400px
+    }
+}
+
+@media (max-width:500px){
+    .selected-page span{
+        display: none;
     }
 }

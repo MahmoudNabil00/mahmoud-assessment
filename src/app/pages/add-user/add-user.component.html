@@ -1,1 +1,82 @@
-<p>add-user works!</p>
+<div class="add-user-container d-flex flex-column gap-8">
+    <div class="header d-flex justify-content-between align-items-center p-4">
+        <div class="d-flex align-items-center gap-6">
+            <i (click)="navigateToDashboard()" class="pi pi-arrow-left cursor-pointer"></i>
+            <div class="d-flex flex-column">
+                <span class="font-14 fw-bold">
+                    Add User
+                </span>
+                <span class="font-14 ">
+                    Organization
+                </span>
+            </div>
+        </div>
+        <div class="d-flex gap-4 align-items-center">
+            <div (click)="navigateToDashboard()" class="d-flex gap-2 align-items-center cursor-pointer">
+                <i  class="pi pi-times"></i>
+                <span class="font-14">Cancel</span>
+            </div>
+            <p-button (click)="navigateToDashboard()" label="Save" icon="pi pi-check" iconPos="left" severity="success"/>
+        </div>
+    </div>
+    
+    <div class="add-user-content container d-flex flex-column gap-4 align-items-center mb-4">
+        <div class="img-content d-flex flex-column gap-4 align-items-center">
+            <mahmoud-imgs [width]="200" [src]="previewUrl"/>
+            <div (click)="input.click()" class="upload-button d-flex gap-4 align-items-center">
+                <i  class="pi pi-camera f-secondary"></i>
+                <span class="font-14 f-secondary ">Update Image</span>
+                <input #input [hidden]="true" type="file" (change)="onFileSelected($event)" accept="image/*" />
+            </div>
+
+       </div>
+
+       <div [formGroup]="form" class="form-content d-flex flex-wrap flex-column gap-4 ">
+            <div class="names d-flex flex-wrap gap-4">
+                <div class="input-field d-flex flex-column gap-1 flex-1">
+                    <label for="firstName"><span class="f-secondary">First Name</span><span style="color: red;">*</span></label>
+                    <input placeholder="First Name" pInputText id="firstName"  formControlName="firstName" />
+                </div>
+                <div class="input-field d-flex flex-column gap-1 flex-1">
+                    <label for="firstName"><span class="f-secondary">First Name</span></label>
+                    <input placeholder="Middle Name" pInputText id="middleName"  formControlName="middleName" />
+                </div>
+                <div class="input-field d-flex flex-column gap-1 flex-1">
+                    <label for="firstName"><span class="f-secondary">Last Name</span><span style="color: red;">*</span></label>
+                    <input placeholder="Last Name" pInputText id="lastName"  formControlName="lastName" />
+                </div>
+            </div>
+            <div class="input-field d-flex flex-column gap-1">
+                <label for="firstName"><span class="f-secondary">Email</span><span style="color: red;">*</span></label>
+                 <p-iconfield>
+                     <p-inputicon class="pi pi-envelope" />
+                     <input type="text" pInputText placeholder="email" formControlName="email" />
+                 </p-iconfield>
+             </div>
+            <div class="input-field d-flex flex-column gap-1">
+                <label for="firstName"><span class="f-secondary">phone</span></label>
+                <p-iconfield>
+                    <p-inputicon class="pi pi-phone" />
+                    <input type="text" pInputText placeholder="phone" formControlName="phone" />
+                 </p-iconfield>
+             </div> 
+             <div class="input-field d-flex align-items-center gap-2">
+                 <span class="f-secondary">RFI ID</span>
+                 <p-toggleswitch (onChange)="RefIdChange($event)" formControlName="RF_ID" />
+                </div>
+                @if (form.contains('rfi')) {
+                    <div class="input-field">
+                        <input type="text" pInputText placeholder="rfi" formControlName="rfi" />
+                    </div>
+                }
+                <div class="input-field d-flex flex-column gap-1">
+                    <label for="firstName"><span class="f-secondary">Role   </span><span style="color: red;">*</span></label>
+                    <p-select [options]="[{name:'Developer',id:0},{name:'Manager',id:1}]" formControlName="role" optionLabel="name" placeholder="Select a Role"/>
+                 </div>
+                <div class="input-field d-flex flex-column gap-1">
+                    <label for="Department"><span class="f-secondary">Department</span><span style="color: red;">*</span></label>
+                    <p-select [options]="[{name:'Developer',id:0},{name:'Manager',id:1}]" formControlName="department" optionLabel="name" placeholder="Select a Department"/>
+                 </div>
+       </div>
+    </div>
+</div>

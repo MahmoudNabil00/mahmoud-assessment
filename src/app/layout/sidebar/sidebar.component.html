@@ -1,3 +1,31 @@
-<div class="sidebar-container">
-    
+<div class="sidebar-container d-flex flex-column gap-6" [class.close]="!isOpen()" [class.justify-content-between]="!isOpen()">
+    <div class="d-flex flex-column gap-4">
+        <div class="log d-flex justify-content-center aling-items-center">
+            @if (isOpen()) {
+                 <mahmoud-imgs [isSvg]="false" class="cursor-pointer mt-4" [width]="170" src="assets/imgs/logo.png"/>
+            }@else{
+                 <mahmoud-imgs [isSvg]="false" class="cursor-pointer mt-4" [width]="70" src="assets/imgs/logo-small.png"/>
+            }
+         </div>
+         <div class="theme d-flex justify-content-center aling-items-center">
+            <mahmoud-switch-theme/>
+         </div>
+         <div class="action-toggle d-flex justify-content-center align-items-center">
+             <i (click)="toggleSidebar()" class="pi pi-list cursor-pointer" style="color: #708090;font-size: 1.5rem"></i>
+         </div>
+    </div>
+    <mahmoud-navigation-item [class.flex-1]="isOpen()" [mode]="sideBarMode()"/>
+    <div class="d-flex m-4 gap-4 align-items-center" [class.justify-content-center]="!isOpen()">
+        <mahmoud-avatar [width]="40"/>
+        @if (isOpen()) {
+            <div class="d-flex flex-column">
+                <span class="font-14 fw-bold">
+                    John Doe
+                </span>
+                <span class="font-14 ">
+                    Admin
+                </span>
+            </div>
+        }
+    </div>
 </div>
