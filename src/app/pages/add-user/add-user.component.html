@@ -3,20 +3,20 @@
         <div class="d-flex align-items-center gap-6">
             <i (click)="navigateToDashboard()" class="pi pi-arrow-left cursor-pointer"></i>
             <div class="d-flex flex-column">
-                <span class="font-14 fw-bold">
+                <span class="font-14 fw-bold f-secondary">
                     Add User
                 </span>
-                <span class="font-14 ">
+                <span class="font-14 f-secondary">
                     Organization
                 </span>
             </div>
         </div>
         <div class="d-flex gap-4 align-items-center">
             <div (click)="navigateToDashboard()" class="d-flex gap-2 align-items-center cursor-pointer">
-                <i  class="pi pi-times"></i>
-                <span class="font-14">Cancel</span>
+                <i  class="pi pi-times f-secondary"></i>
+                <span class="font-14 f-secondary" >Cancel</span>
             </div>
-            <p-button (click)="navigateToDashboard()" label="Save" icon="pi pi-check" iconPos="left" severity="success"/>
+            <p-button (click)="navigateToDashboard(1)" label="Save" icon="pi pi-check" iconPos="left" severity="success"/>
         </div>
     </div>
     

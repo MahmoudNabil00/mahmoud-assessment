@@ -1,0 +1,97 @@
+
+
+<div class="table-container h-100 d-flex flex-column gap-6">
+    <div class="d-flex gap-4 align-items-center">
+        <i style="size: 1.5rem;" class="pi pi-clock font-16"></i>
+        <div class="d-flex flex-column gap-1">
+            <span class="fw-bold font-14">Afternoon Shift</span>
+            <span class="fw-medium font-14">12:00 PM - 08:00 PM </span>
+        </div>
+    </div>
+    <p-table [value]="tableData().data" >
+        <ng-template #header>
+            <tr>
+                @for (item of tableData().header; track $index) {
+                    <th [pSortableColumn]="item.sortName" style="width:20%">
+                        <div class="d-flex align-items-center gap-2">
+                            <mahmoud-imgs class="mb-1" [removeStyle]="true" [width]="10" [isSvg]="true" src="assets/svg/drag-indicator.svg"></mahmoud-imgs>
+                            <span class="font-14 f-muted fw-semibold f-secondary">
+                                {{item.name}}
+                            </span>
+                            @if (item.sortName) {
+                                <p-sortIcon [field]="item.sortName" />
+                            }
+                        </div>
+                    </th>
+                }
+            </tr>
+        </ng-template>
+        <ng-template #body let-item>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="rounded-card">
+                            <span class="font-14 f-muted fw-regular f-secondary">
+                                SUV
+                            </span>
+                        </div>
+                        <span class="font-14 f-muted fw-regular f-secondary">
+                            {{item.vehicle}}
+                        </span>
+                    </div>
+                </td>
+                <td>
+                    <span class="font-14 f-muted fw-regular f-secondary">
+                        {{item.plateNumber}}
+                    </span>
+                </td>
+                <td>
+                    <span class="font-14 f-muted fw-regular f-secondary">
+                        {{item.odometer}}
+                    </span>
+                </td>
+                <td>
+                    <span class="font-14 f-muted fw-regular f-secondary">
+                        {{item.gps}}
+                    </span>
+                </td>
+                <td>
+                    <div class="d-flex">
+                        <i class="pi pi-bolt"></i>
+                        <span class="font-14 f-muted fw-regular f-secondary">
+                            {{item.device}}
+                        </span>
+                    </div>
+                </td>
+                <td>
+                    <span class="font-14 f-muted fw-regular f-secondary">
+                        {{item.sim}}
+                    </span>
+                </td>
+                <td>
+                    <span class="font-14 f-muted fw-regular f-secondary">
+                        {{item.fleet}}
+                    </span>
+                </td>
+                <td>
+                    <div class="rounded-card d-flex align-items-center gap-1">
+                        <span class="font-14 f-muted fw-regular f-secondary">
+                            {{item.status}}
+                        </span>
+                        <i  style="font-size: 1rem;" class="cursor-pointer pi pi-angle-down f-secondary"></i>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+
+<!-- vehicle: 'Bus-9265',
+plateNumber: '04321',
+odometer: '55,956 KM',
+gps: '3-Nov-2024',
+device: 'Teltonika\nC03-96321',
+sim: 'Allowance\n1.5GB',
+fleet: 'Q22',
+status: 'Active', -->

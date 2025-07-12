@@ -1,0 +1,12 @@
+<div class="widget-item {{widgetData().colorOpacity}}" >
+    @if (widgetData()!.chartData) {
+        @let percentage = widgetData().chartData.datasets[0].data[0];
+        <mahmoud-doughnut-chart [doughnutChartData]="widgetData().chartData" [percentage]="percentage"/>
+    }
+    <div class="label">
+        <span>{{widgetData().label}}</span>
+    </div>
+    <div class="sub-label text-center">
+        <span class="font-12 fw-medium f-secondary">{{widgetData().subLabel}}</span>
+    </div>
+</div>

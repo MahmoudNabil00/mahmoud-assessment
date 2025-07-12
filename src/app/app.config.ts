@@ -6,6 +6,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { providePrimeNG } from 'primeng/config';
 import { customPresetColors } from './helpers/preset-prime-ng-colors';
 import { provideHttpClient } from '@angular/common/http';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 
 export const appConfig: ApplicationConfig = {
@@ -19,7 +20,7 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: customPresetColors, options: { darkModeSelector: '.dark-theme' }
       },
-    }),
+    }), provideCharts(withDefaultRegisterables()),
   ]
 };
 

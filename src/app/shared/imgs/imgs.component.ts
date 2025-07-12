@@ -18,6 +18,7 @@ export class ImgsComponent implements OnInit{
   isSvg = input<boolean>(false)
   width = input<number>(120)
   alt = input<string>('Image')
+  removeStyle = input<boolean>(false)
   isOutline = input<boolean>(false)
   themeService = inject(ThemeService)
   router = inject(Router)

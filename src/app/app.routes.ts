@@ -10,7 +10,8 @@ export const routes: Routes = [
                 path:'dashboard',component:DashboardComponent,
             },
             {
-                path:'add-user',component:AddUserComponent,
+                path:'add-user',
+                loadComponent: () => import('./pages/add-user/add-user.component').then(m => m.AddUserComponent),
             },
             {
                 path:'',pathMatch:'full',redirectTo:(state)=>{

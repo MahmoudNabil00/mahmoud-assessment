@@ -1,0 +1,13 @@
+<div class="doughnut-chart-container">
+  <div class="chart-wrapper">
+    <canvas baseChart
+      [data]="_doughnutChartData()"
+      [options]="doughnutChartOptions"
+      [type]="doughnutChartType()">
+    </canvas>
+    <div class="percentage-overlay">
+      <span class="fw-bold font-14 f-primary">{{ percentage() }}%</span>
+      <!-- <span class="percentage-label">Progress</span> -->
+    </div>
+  </div>
+</div>

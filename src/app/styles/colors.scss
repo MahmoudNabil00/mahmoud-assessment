@@ -21,7 +21,7 @@
     --m-surface-0:   #ffffff;   
     --m-surface-100: #f4f4f5;
     --m-surface-200: #e5e7eb;
-    --m-surface-300: #d1d5db;
+    --m-surface-300: #d1d8e3;
     --m-surface-400: #9ca3af;
     --m-surface-500: #6b7280; // for border 
     --m-surface-600: #4b5563;
@@ -30,16 +30,22 @@
     --m-surface-850: #1f1d2b; 
     --m-surface-900: #10141A; 
 
+    --light-white:#E8E8F1;
+    --light-dark:#1F1D2B59;
     // Back-ground colors light mode 
-
+    
     --m-bg-1:var(--m-surface-300);
     --m-bg-2:var(--m-surface-200);
-    --m-bg-3:var(--m-surface-100);
+    --m-bg-3:var(--m-surface-0);
+    
+    --m-bg-4:var(--light-white);
 
     &.dark-theme{
         --m-bg-1:var(--m-surface-800); // body
         --m-bg-2:var( --m-surface-850); // modal
         --m-bg-3:var(--m-surface-900); // bars / headers / sidebar
+
+        --m-bg-4:var(--light-dark)
     }
 
 

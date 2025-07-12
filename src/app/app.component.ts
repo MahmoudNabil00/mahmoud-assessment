@@ -6,7 +6,7 @@ import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
-  imports: [PrimeNgModule,ReactiveFormsModule,FormsModule,RouterOutlet],
+  imports: [PrimeNgModule, ReactiveFormsModule, FormsModule, RouterOutlet,],
   templateUrl: './app.component.html',
   styleUrl: './app.scss'
 })

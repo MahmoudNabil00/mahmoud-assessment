@@ -28,7 +28,7 @@ export class AddUserComponent implements OnInit{
       department:['',Validators.required],
     })
   }
-  navigateToDashboard(){
+  navigateToDashboard(isSuccess:number = 0){
     this.router.navigate(['dashboard'])
   }
 

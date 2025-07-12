@@ -39,7 +39,7 @@
                             <span class="fw-bold f-muted font-12">{{item.label}}</span>
                         </a>
                     </div>
-                    <p-menu [popup]="true" #menu [model]="[{}]" [popup]="true" >
+                    <p-menu appendTo="self" [popup]="true" #menu [model]="[{}]" [popup]="true" >
                         <ng-template  pTemplate="item">
                             <div  class="custom-menu-item p-2 d-flex flex-column gap-4">
                                 <span class="font-16 fw-semibold">Assets</span>

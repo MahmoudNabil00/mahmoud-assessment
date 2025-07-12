@@ -1,0 +1,16 @@
+:host{
+    --p-datatable-header-cell-background:var(--m-bg-2);
+}
+
+.rounded-card{
+    padding-inline: 4px;
+    border-radius: 6px;
+    border: 1px solid var(--m-surface-500);
+    display: flex;
+    justify-content: center;
+}
+
+.pi-bolt{
+    // box-shadow: 5px 5px 5px #4DBF77;
+    color: #4DBF77;
+}

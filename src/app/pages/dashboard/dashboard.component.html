@@ -1,1 +1,25 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+    <div class="widgets-indicator">
+        @for (item of dashboardService.getIndicatorWidgetsData() | async; track $index) {
+            <mahmoud-widgets-indicator class="flex-1" [widgetData]="item"/>
+        }
+    </div>
+    <div class="search-bar d-flex align-items-center gap-4">
+        <p-iconfield class="flex-1">
+            <p-inputicon class="pi pi-search" />
+            <input class="w-100" type="text" pInputText placeholder="Search" [formControl]="search" />
+        </p-iconfield>
+        <div (click)="true" class="upload-button d-flex gap-4 align-items-center">
+            <i class="pi pi-download f-secondary"></i>
+            <span class="font-14 f-secondary ">Export</span>
+        </div>
+        <div (click)="true" class="upload-button d-flex gap-4 align-items-center">
+            <i  class="pi pi-upload f-secondary"></i>
+            <span class="font-14 f-secondary ">Import</span>
+        </div>
+
+    </div>
+    <div class="tables">
+        <mahmoud-tables [tableData]="tableService.getTableData() | async"/>
+    </div>
+</div>
