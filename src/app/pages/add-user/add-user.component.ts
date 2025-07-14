@@ -29,6 +29,9 @@ export class AddUserComponent implements OnInit{
     })
   }
   navigateToDashboard(isSuccess:number = 0){
+    if(isSuccess==0){
+      this.router.navigate(['dashboard'])
+    }
     if(isSuccess && this.form.valid){
       this.router.navigate(['dashboard'])
     }else{
