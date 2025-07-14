@@ -29,7 +29,12 @@ export class AddUserComponent implements OnInit{
     })
   }
   navigateToDashboard(isSuccess:number = 0){
-    this.router.navigate(['dashboard'])
+    if(isSuccess && this.form.valid){
+      this.router.navigate(['dashboard'])
+    }else{
+      this.form.markAllAsDirty()
+      this.form.markAllAsTouched()
+    }
   }
 
   
